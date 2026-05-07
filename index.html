@@ -1,0 +1,193 @@
+ <!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مكتبتي الرقمية | ابحث عن كتابك</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #2c3e50;
+            --bg-color: #f4f7f6;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+            color: var(--secondary-color);
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: var(--white);
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .search-container {
+            max-width: 600px;
+            margin: -30px auto 40px;
+            background: var(--white);
+            padding: 10px;
+            border-radius: 50px;
+            display: flex;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        input {
+            flex: 1;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            outline: none;
+            font-size: 16px;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #357abd;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .book-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .book-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .book-img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            background: #eee;
+            padding: 10px;
+        }
+
+        .book-info {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .book-info h3 {
+            margin: 0 0 10px;
+            font-size: 18px;
+            color: var(--primary-color);
+        }
+
+        .book-info p {
+            font-size: 14px;
+            color: #777;
+            line-height: 1.6;
+            margin: 5px 0;
+        }
+
+        .loader {
+            display: none;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--primary-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+
+    <section class="hero-section">
+        <h1>مستكشف الكتب الذكي 📖</h1>
+        <p>ابحث عن تفاصيل أي كتاب في ثوانٍ معدودة</p>
+    </section>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="أدخل اسم الكتاب أو المؤلف...">
+        <button onclick="fetchBooks()">بحث"</button>
+    </div>
+
+    <div id="loader" class="loader"></div>
+
+    <div id="results" class="results-grid"></div>
+     <script>
+        async function fetchBooks() {
+            const query = document.getElementById('searchInput').value;
+            const resultsDiv = document.getElementById('results');
+            const loader = document.getElementById('loader');
+
+            if (!query) {
+                alert("من فضلك اكتب اسماً للبحث عنه");
+                return;
+            }
+
+            resultsDiv.innerHTML = "";
+            loader.style.display = "block";
+
+            try {
+                const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(query)}&maxResults=12`);
+                const data = await response.json();
+                loader.style.display = "none";
+
+                if (!data.items) {
+                    resultsDiv.innerHTML = "<p style='grid-column: 1/-1; text-align:center;'>لم يتم العثور على نتائج.</p>";
+                    return;
+                }
+
+                data.items.forEach(item => {
+                    const info = item.volumeInfo;
+                    const thumb = info.imageLinks ? info.imageLinks.thumbnail : 'https://via.placeholder.com/150x200?text=No+Image';
+                    const desc = info.description ? info.description.substring(0, 120) + "..." : "لا يوجد وصف متاح لهذا الكتاب حالياً.";
+                    
+                    const card = `
+                        <div class="book-card">
+                            <img src="${thumb}" alt="${info.title}" class="book-img"/>
+                            <div class="book-info">
+                                <h3>${info.title}</h3>
+                                <p><strong>المؤلف:</strong> ${info.authors ? info.authors.join(', ') : 'غير معروف'}</p>
+                                <p>${desc}</p>
+                            </div>
+                        </div>
+                    `;
+                    resultsDiv.innerHTML += card;
+                });
+            } catch (error) {
+                loader.style.display = "none";
+                alert("حدث خطأ في الاتصال بالخادم. تأكد من الإنترنت.");
+            }
+        }
+    </script>
+</body>
+</html>
