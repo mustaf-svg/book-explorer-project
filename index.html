@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -11,6 +11,29 @@
             --secondary-color: #2c3e50;
             --bg-color: #f4f7f6;
             --white: #ffffff;
+            --text-color: #2c3e50;
+            --card-bg: #ffffff;
+            --desc-color: #777;
+            --img-bg: #eee;
+            --shadow-color: rgba(0,0,0,0.1);
+            --card-shadow: rgba(0,0,0,0.05);
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #5ba3f5;
+            --secondary-color: #1a1a2e;
+            --bg-color: #0f0f1e;
+            --white: #1e1e2e;
+            --text-color: #e4e4e7;
+            --card-bg: #1e1e2e;
+            --desc-color: #a1a1aa;
+            --img-bg: #2a2a3e;
+            --shadow-color: rgba(0,0,0,0.5);
+            --card-shadow: rgba(0,0,0,0.3);
+        }
+
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         body {
@@ -18,25 +41,51 @@
             background-color: var(--bg-color);
             margin: 0;
             padding: 0;
-            color: var(--secondary-color);
+            color: var(--text-color);
         }
 
         .hero-section {
             background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-            color: var(--white);
+            color: #ffffff;
             padding: 60px 20px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px var(--shadow-color);
+            position: relative;
+        }
+
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            padding: 0;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(20deg) scale(1.1);
         }
 
         .search-container {
             max-width: 600px;
             margin: -30px auto 40px;
-            background: var(--white);
+            background: var(--card-bg);
             padding: 10px;
             border-radius: 50px;
             display: flex;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 25px var(--shadow-color);
         }
 
         input {
@@ -47,6 +96,12 @@
             outline: none;
             font-size: 16px;
             font-family: 'Tajawal', sans-serif;
+            background: var(--card-bg);
+            color: var(--text-color);
+        }
+
+        input::placeholder {
+            color: var(--desc-color);
         }
 
         button {
@@ -57,6 +112,8 @@
             border-radius: 50px;
             cursor: pointer;
             font-weight: bold;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 16px;
             transition: 0.3s;
         }
 
@@ -74,11 +131,11 @@
         }
 
         .book-card {
-            background: var(--white);
+            background: var(--card-bg);
             border-radius: 15px;
             overflow: hidden;
             transition: transform 0.3s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px var(--card-shadow);
             display: flex;
             flex-direction: column;
         }
@@ -91,7 +148,7 @@
             width: 100%;
             height: 200px;
             object-fit: contain;
-            background: #eee;
+            background: var(--img-bg);
             padding: 10px;
         }
 
@@ -108,14 +165,18 @@
 
         .book-info p {
             font-size: 14px;
-            color: #777;
+            color: var(--desc-color);
             line-height: 1.6;
             margin: 5px 0;
         }
 
+        .book-info p strong {
+            color: var(--text-color);
+        }
+
         .loader {
             display: none;
-            border: 4px solid #f3f3f3;
+            border: 4px solid var(--img-bg);
             border-top: 4px solid var(--primary-color);
             border-radius: 50%;
             width: 40px;
@@ -130,19 +191,41 @@
 <body>
 
     <section class="hero-section">
+        <button class="theme-toggle" onclick="toggleTheme()" id="themeToggle" title="تبديل الوضع">🌙</button>
         <h1>مستكشف الكتب الذكي 📖</h1>
         <p>ابحث عن تفاصيل أي كتاب في ثوانٍ معدودة</p>
     </section>
 
     <div class="search-container">
         <input type="text" id="searchInput" placeholder="أدخل اسم الكتاب أو المؤلف...">
-        <button onclick="fetchBooks()">بحث"</button>
+        <button onclick="fetchBooks()">بحث</button>
     </div>
 
     <div id="loader" class="loader"></div>
 
     <div id="results" class="results-grid"></div>
-     <script>
+
+    <script>
+        // وظيفة تبديل الوضع
+        function toggleTheme() {
+            const html = document.documentElement;
+            const toggleBtn = document.getElementById('themeToggle');
+            const currentTheme = html.getAttribute('data-theme');
+            
+            if (currentTheme === 'dark') {
+                html.removeAttribute('data-theme');
+                toggleBtn.textContent = '🌙';
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                toggleBtn.textContent = '☀️';
+            }
+        }
+
+        // السماح بالبحث عند الضغط على Enter
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') fetchBooks();
+        });
+
         async function fetchBooks() {
             const query = document.getElementById('searchInput').value;
             const resultsDiv = document.getElementById('results');
