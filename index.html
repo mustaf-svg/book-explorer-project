@@ -47,10 +47,11 @@
         .hero-section {
             background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
             color: #ffffff;
-            padding: 60px 20px;
+            padding: 60px 20px 90px;
             text-align: center;
             box-shadow: 0 4px 15px var(--shadow-color);
             position: relative;
+            z-index: 1;
         }
 
         .theme-toggle {
@@ -71,6 +72,7 @@
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
             padding: 0;
+            z-index: 10;
         }
 
         .theme-toggle:hover {
@@ -86,6 +88,8 @@
             border-radius: 50px;
             display: flex;
             box-shadow: 0 10px 25px var(--shadow-color);
+            position: relative;
+            z-index: 5;
         }
 
         input {
