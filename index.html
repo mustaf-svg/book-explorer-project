@@ -1,374 +1,715 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html  >
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مكتبتي الرقمية | ابحث عن كتابك</title>
+  <!-- Site made with Mobirise Website Builder v6.1.12, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v6.1.12, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/photo-1457369804613-52c61a468e7d.jpeg" type="image/x-icon">
+  <meta name="description" content="Join a local book club for engaging discussions about this month's selected title, including meetings and events.">
+  
+  
+  <title>Join Our Book Club: Book of the Month and Reading Schedule</title>
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/parallax/jarallax.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/socicon/css/styles.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;700&display=swap&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;700&display=swap&display=swap"></noscript>
+  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css?v=woAJEB"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css?v=woAJEB" type="text/css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --primary-color: #4a90e2;
-            --secondary-color: #2c3e50;
-            --bg-color: #f4f7f6;
-            --white: #ffffff;
-            --text-color: #2c3e50;
-            --card-bg: #ffffff;
-            --desc-color: #777;
-            --img-bg: #eee;
-            --shadow-color: rgba(0,0,0,0.1);
-            --card-shadow: rgba(0,0,0,0.05);
-        }
-
-        [data-theme="dark"] {
-            --primary-color: #5ba3f5;
-            --secondary-color: #1a1a2e;
-            --bg-color: #0f0f1e;
-            --white: #1e1e2e;
-            --text-color: #e4e4e7;
-            --card-bg: #1e1e2e;
-            --desc-color: #a1a1aa;
-            --img-bg: #2a2a3e;
-            --shadow-color: rgba(0,0,0,0.5);
-            --card-shadow: rgba(0,0,0,0.3);
-        }
-
-        * {
-            transition: background-color 0.3s ease, color 0.3s ease;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Tajawal', sans-serif;
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 0;
-            color: var(--text-color);
-        }
-
-        .hero-section {
-            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-            color: #ffffff;
-            padding: 60px 20px 90px;
-            text-align: center;
-            box-shadow: 0 4px 15px var(--shadow-color);
-            position: relative;
-            z-index: 1;
-        }
-
-        .theme-toggle {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background: rgba(255, 255, 255, 0.2);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 22px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            padding: 0;
-            z-index: 10;
-        }
-
-        .theme-toggle:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: rotate(20deg) scale(1.1);
-        }
-
-        .search-container {
-            max-width: 600px;
-            margin: -30px auto 40px;
-            background: var(--card-bg);
-            padding: 10px;
-            border-radius: 50px;
-            display: flex;
-            box-shadow: 0 10px 25px var(--shadow-color);
-            position: relative;
-            z-index: 5;
-        }
-
-        input {
-            flex: 1;
-            border: none;
-            padding: 15px 25px;
-            border-radius: 50px;
-            outline: none;
-            font-size: 16px;
-            font-family: 'Tajawal', sans-serif;
-            background: var(--card-bg);
-            color: var(--text-color);
-        }
-
-        input::placeholder {
-            color: var(--desc-color);
-        }
-
-        button {
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 0 30px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: bold;
-            font-family: 'Tajawal', sans-serif;
-            font-size: 16px;
-            transition: 0.3s;
-        }
-
-        button:hover {
-            background: #357abd;
-        }
-
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .book-card {
-            background: var(--card-bg);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: transform 0.3s;
-            box-shadow: 0 5px 15px var(--card-shadow);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .book-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .book-img {
-            width: 100%;
-            height: 200px;
-            object-fit: contain;
-            background: var(--img-bg);
-            padding: 10px;
-        }
-
-        .book-info {
-            padding: 20px;
-            flex-grow: 1;
-        }
-
-        .book-info h3 {
-            margin: 0 0 10px;
-            font-size: 18px;
-            color: var(--primary-color);
-        }
-
-        .book-info p {
-            font-size: 14px;
-            color: var(--desc-color);
-            line-height: 1.6;
-            margin: 5px 0;
-        }
-
-        .book-info p strong {
-            color: var(--text-color);
-        }
-
-        .loader {
-            display: none;
-            border: 4px solid var(--img-bg);
-            border-top: 4px solid var(--primary-color);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        @media (max-width: 768px) {
-            .search-container {
-                flex-direction: column;
-                border-radius: 20px;
-                margin: -30px 15px 40px;
-            }
-
-            button {
-                padding: 15px;
-                margin-top: 10px;
-            }
-
-            .hero-section h1 {
-                font-size: 28px;
-            }
-        }
-    </style>
+  
+  
+  
 </head>
-
 <body>
+  
+  <section data-bs-version="5.1" class="menu menu2 cid-vjIuJdbJNk" once="menu" id="menu-5-vjIuJdbJNk">
+	
 
-    <section class="hero-section">
-        <button class="theme-toggle" onclick="toggleTheme()" id="themeToggle" title="تبديل الوضع">
-            🌙
-        </button>
+	<nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+		<div class="container">
+			<div class="navbar-brand">
+				<span class="navbar-logo">
+					<a href="https://mobiri.se">
+						<img src="assets/images/photo-1457369804613-52c61a468e7d.jpeg" alt="Mobirise Website Builder" style="height: 4.3rem;">
+					</a>
+				</span>
+				<span class="navbar-caption-wrap"><a class="navbar-caption text-black display-4" href="https://mobiri.se">Bibliophile</a></span>
+			</div>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+				<div class="hamburger">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+					<li class="nav-item">
+						<a class="nav-link link text-black display-4" href="https://mobiri.se">Book</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link link text-black display-4" href="https://mobiri.se" aria-expanded="false">Schedule</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link link text-black display-4" href="https://mobiri.se">Join</a>
+					</li>
+				</ul>
+				
+				<div class="navbar-buttons mbr-section-btn"><a class="btn btn-primary display-4" href="https://mobiri.se">Stay Connected</a></div>
+			</div>
+		</div>
+	</nav>
+</section>
 
-        <h1>مستكشف الكتب الذكي 📖</h1>
-        <p>ابحث عن تفاصيل أي كتاب في ثوانٍ معدودة</p>
-    </section>
-
-    <div class="search-container">
-        <input type="text" id="searchInput" placeholder="أدخل اسم الكتاب أو المؤلف...">
-        <button onclick="fetchBooks()">بحث</button>
-    </div>
-
-    <div id="loader" class="loader"></div>
-
-    <div id="results" class="results-grid"></div>
-
-    <footer style="text-align:center;padding:20px;color:var(--desc-color);">
+<section data-bs-version="5.1" class="header16 cid-vjIuJdephD mbr-fullscreen mbr-parallax-background" id="hero-17-vjIuJdephD">
+  
+  
+  <div class="container-fluid">
+    <div class="row">
+      <div class="content-wrap col-12 col-md-12">
+        <h1 class="mbr-section-title mbr-fonts-style mbr-white mb-4 display-1">
+          <strong>Book Haven</strong>
+        </h1>
         
-    </footer>
+        <p class="mbr-fonts-style mbr-text mbr-white mb-4 display-7">Join us for inspiring reads and lively discussions every month!</p>
+        <div class="mbr-section-btn"><a class="btn btn-white-outline display-7" href="https://mobiri.se">Join Now</a></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script>
+<section data-bs-version="5.1" class="gallery07 cid-vjIuJdzarh" id="gallery-14-vjIuJdzarh">
+  
+  
+  <div class="container-fluid gallery-wrapper">
+    <div class="row justify-content-center">
+      <div class="col-12 content-head">
+        
+      </div>
+    </div>
+    <div class="grid-container">
+      <div class="grid-container-3 moving-left" style="transform: translate3d(-200px, 0px, 0px);">
+        <div class="grid-item">
+          <img src="assets/images/photo-1630343710506-89f8b9f21d31.jpeg" alt="Mobirise Website Builder">
+        </div>
+        <div class="grid-item">
+          <img src="assets/images/photo-1521587760476-6c12a4b040da.jpeg" alt="Mobirise Website Builder">
+        </div>
+        <div class="grid-item">
+          <img src="assets/images/photo-1521056787327-165dc2a32836.jpeg" alt="Mobirise Website Builder">
+        </div>
+        <div class="grid-item">
+          <img src="assets/images/photo-1522407183863-c0bf2256188c.jpeg" alt="Mobirise Website Builder">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        // حفظ واسترجاع الوضع الليلي
-        function toggleTheme() {
+<section data-bs-version="5.1" class="features03 cid-vjIuJdAYyH" id="events-1-vjIuJdAYyH">
+  
+  
+  <div class="container-fluid">
+    <div class="row justify-content-center mb-5">
+      <div class="col-12 content-head">
+        <div class="mbr-section-head">
+          <h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+            <strong>Upcoming Reads</strong>
+          </h4>
+          
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="item features-image col-12 col-md-6 col-lg-3 active">
+        <div class="item-wrapper">
+          <div class="item-img mb-3">
+            <img src="assets/images/photo-1513185041617-8ab03f83d6c5.jpeg" alt="Mobirise Website Builder" title="">
+          </div>
+          <div class="item-content align-left">
+            <h5 class="item-title mbr-fonts-style mt-0 mb-2 display-5">
+              <strong>Mystery of the Lost Key</strong>
+            </h5>
+            <p class="mbr-text mbr-fonts-style mb-3 display-7">2026-06-01</p>
+            <p class="mbr-text mbr-fonts-style mb-3 display-7">Join us for a thrilling mystery that keeps you guessing until the final page. Get ready for some suspense!</p>
+            <div class="mbr-section-btn item-footer">
+              <a href="" class="btn item-btn btn-primary display-7">Read</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="item features-image col-12 col-md-6 col-lg-3">
+        <div class="item-wrapper">
+          <div class="item-img mb-3">
+            <img src="assets/images/photo-1456513080510-7bf3a84b82f8.jpeg" alt="Mobirise Website Builder" title="" data-slide-to="1" data-bs-slide-to="1">
+          </div>
+          <div class="item-content align-left">
+            <h5 class="item-title mbr-fonts-style mb-2 mt-0 display-5">
+              <strong>The Power of Friendship</strong>
+            </h5>
+            <p class="mbr-text mbr-fonts-style mb-3 display-7">2026-06-15</p>
+            <p class="mbr-text mbr-fonts-style mb-3 display-7">A heartwarming tale that celebrates the bonds we forge. Bring your tissues!</p>
+            <div class="mbr-section-btn item-footer">
+              <a href="" class="btn item-btn btn-primary display-7">Read</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="item features-image col-12 col-md-6 col-lg-3">
+        <div class="item-wrapper">
+          <div class="item-img mb-3">
+            <img src="assets/images/photo-1524995997946-a1c2e315a42f.jpeg" alt="Mobirise Website Builder" title="" data-slide-to="2" data-bs-slide-to="2">
+          </div>
+          <div class="item-content align-left">
+            <h5 class="item-title mbr-fonts-style mb-2 mt-0 display-5">
+              <strong>Science Fiction Extravaganza</strong>
+            </h5>
+            <p class="mbr-text mbr-fonts-style mb-3 display-7">2026-07-01</p>
+            <p class="mbr-text mbr-fonts-style mb-3 display-7">Explore futuristic worlds and ethical dilemmas in this mind-bending sci-fi collection. Brace yourself for the future!</p>
+            <div class="mbr-section-btn item-footer">
+              <a href="" class="btn item-btn btn-primary display-7">Read</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="item features-image col-12 col-md-6 col-lg-3">
+        <div class="item-wrapper">
+          <div class="item-img mb-3">
+            <img src="assets/images/photo-1476275466078-4007374efbbe.jpeg" alt="Mobirise Website Builder" title="" data-slide-to="2" data-bs-slide-to="2">
+          </div>
+          <div class="item-content align-left">
+            <h5 class="item-title mbr-fonts-style mb-2 mt-0 display-5">
+              <strong>Classic Revisited: Great Expectations</strong>
+            </h5>
+            <p class="mbr-text mbr-fonts-style mb-3 display-7">2026-07-15</p>
+            <p class="mbr-text mbr-fonts-style mb-3 display-7">Experience a classic novel that shaped literature with its unforgettable characters and themes. Rediscover great literature!</p>
+            <div class="mbr-section-btn item-footer">
+              <a href="" class="btn item-btn btn-primary display-7">Read</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-            const html = document.documentElement;
-            const toggleBtn = document.getElementById('themeToggle');
-            const currentTheme = html.getAttribute('data-theme');
-
-            if (currentTheme === 'dark') {
-
-                html.removeAttribute('data-theme');
-                toggleBtn.textContent = '🌙';
-                localStorage.setItem('theme', 'light');
-
-            } else {
-
-                html.setAttribute('data-theme', 'dark');
-                toggleBtn.textContent = '☀️';
-                localStorage.setItem('theme', 'dark');
-            }
-        }
-
-        // استرجاع الثيم المحفوظ
-        window.onload = () => {
-
-            const savedTheme = localStorage.getItem('theme');
-
-            if (savedTheme === 'dark') {
-
-                document.documentElement.setAttribute('data-theme', 'dark');
-                document.getElementById('themeToggle').textContent = '☀️';
-            }
-        };
-
-        // البحث عند الضغط Enter
-        document.getElementById('searchInput').addEventListener('keypress', function(e) {
-
-            if (e.key === 'Enter') {
-                fetchBooks();
-            }
-        });
-
-        async function fetchBooks() {
-
-            const query = document.getElementById('searchInput').value;
-
-            const resultsDiv = document.getElementById('results');
-
-            const loader = document.getElementById('loader');
-
-            if (!query) {
-
-                alert("من فضلك اكتب اسماً للبحث عنه");
-                return;
-            }
-
-            resultsDiv.innerHTML = "";
-
-            loader.style.display = "block";
-
-            try {
-
-                const response = await fetch(
-                    `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(query)}&maxResults=12`
-                );
-
-                const data = await response.json();
-
-                loader.style.display = "none";
-
-                if (!data.items) {
-
-                    resultsDiv.innerHTML =
-                        "<p style='grid-column:1/-1;text-align:center;'>لم يتم العثور على نتائج.</p>";
-
-                    return;
-                }
-
-                data.items.forEach(item => {
-
-                    const info = item.volumeInfo;
-
-                    const thumb = info.imageLinks
-                        ? info.imageLinks.thumbnail
-                        : 'https://via.placeholder.com/150x200?text=No+Image';
-
-                    const desc = info.description
-                        ? info.description.substring(0, 120) + "..."
-                        : "لا يوجد وصف متاح لهذا الكتاب حالياً.";
-
-                    const card = `
-                        <div class="book-card">
-
-                            <img
-                                src="${thumb}"
-                                alt="${info.title}"
-                                class="book-img"
-                                onerror="this.src='https://via.placeholder.com/150x200?text=No+Image'"
-                            />
-
-                            <div class="book-info">
-
-                                <h3>${info.title}</h3>
-
-                                <p>
-                                    <strong>المؤلف:</strong>
-                                    ${info.authors ? info.authors.join(', ') : 'غير معروف'}
-                                </p>
-
-                                <p>${desc}</p>
-
-                            </div>
-
+<section data-bs-version="5.1" class="article13 cid-vjIuJdBK3K" id="call-to-action-3-vjIuJdBK3K">
+    
+    
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="card col-md-12 col-lg-10">
+                <div class="card-wrapper">
+                    <div class="card-box align-left">
+                        <h4 class="card-title mbr-fonts-style display-2">
+                            <strong>Join Our Bookish Community Today!</strong>
+                        </h4>
+                        
+                        <div class="mbr-section-btn mt-4">
+                        <a class="btn btn-primary display-4" href="https://mobiri.se">Sign Up</a>
                         </div>
-                    `;
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-                    resultsDiv.innerHTML += card;
-                });
+<section data-bs-version="5.1" class="people05 cid-vjIuJdSKol" id="testimonials-5-vjIuJdSKol">
+	
 
-            } catch (error) {
+	
+	
+	<div class="container">
+		<div class="row mb-5 justify-content-center">
+			<div class="col-12 mb-0 content-head">
+				<h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+					<strong>Voices</strong>
+				</h3>
+				
+			</div>
+		</div>
+		<div class="row">
+			<div class="item features-without-image col-12 col-md-6 col-lg-4 active">
+				<div class="item-wrapper">
+					<div class="card-box align-left">
+						<p class="card-text mbr-fonts-style display-7">Reading in this club brings a fresh perspective every month!</p>
+						<div class="img-wrapper mt-4 mb-3">
+							<img src="assets/images/photo-1510274642460-65a8de5e52fd.jpeg" alt="" data-slide-to="0" data-bs-slide-to="0">
+						</div>
+						<h5 class="card-title mbr-fonts-style display-7">
+							<strong>Emily Carter</strong>
+						</h5>
+					</div>
+				</div>
+			</div>
+			<div class="item features-without-image col-12 col-md-6 col-lg-4">
+				<div class="item-wrapper">
+					<div class="card-box align-left">
+						<p class="card-text mbr-fonts-style display-7">The sense of community is what keeps me coming back!</p>
+						<div class="img-wrapper mt-4 mb-3">
+							<img src="assets/images/photo-1530882548122-0596ee66cdfd.jpeg" data-slide-to="1" data-bs-slide-to="1" alt="">
+						</div>
+						<h5 class="card-title mbr-fonts-style display-7">
+							<strong>Jason Miller</strong>
+						</h5>
+					</div>
+				</div>
+			</div>
+			<div class="item features-without-image col-12 col-md-6 col-lg-4">
+				<div class="item-wrapper">
+					<div class="card-box align-left">
+						<p class="card-text mbr-fonts-style display-7">Every session feels like a gathering of friends sharing ideas.</p>
+						<div class="img-wrapper mt-4 mb-3">
+							<img src="assets/images/photo-1594296306217-9a2e249baaf1.jpeg" data-slide-to="2" data-bs-slide-to="2" alt="">
+						</div>
+						<h5 class="card-title mbr-fonts-style display-7">
+							<strong>Sophia Collins</strong>
+						</h5>
+					</div>
+				</div>
+			</div>
+			<div class="item features-without-image col-12 col-md-6 col-lg-4">
+				<div class="item-wrapper">
+					<div class="card-box align-left">
+						<p class="card-text mbr-fonts-style display-7">I love the discussions; they’re always insightful and fun!</p>
+						<div class="img-wrapper mt-4 mb-3">
+							<img src="assets/images/photo-1531561855568-3036cd4f03ba.jpeg" data-slide-to="4" data-bs-slide-to="4" alt="">
+						</div>
+						<h5 class="card-title mbr-fonts-style display-7">
+							<strong>Michael Johnson</strong>
+						</h5>
+					</div>
+				</div>
+			</div>
+			<div class="item features-without-image col-12 col-md-6 col-lg-4">
+				<div class="item-wrapper">
+					<div class="card-box align-left">
+						<p class="card-text mbr-fonts-style display-7">This club has introduced me to amazing books I wouldn’t have picked myself.</p>
+						<div class="img-wrapper mt-4 mb-3">
+							<img src="assets/images/photo-1636624498233-0c3c5ab4186e.jpeg" data-slide-to="6" data-bs-slide-to="6" alt="">
+						</div>
+						<h5 class="card-title mbr-fonts-style display-7">
+							<strong>Olivia Lewis</strong>
+						</h5>
+					</div>
+				</div>
+			</div>
+			<div class="item features-without-image col-12 col-md-6 col-lg-4">
+				<div class="item-wrapper">
+					<div class="card-box align-left">
+						<p class="card-text mbr-fonts-style display-7">Engaging conversations that last long after the book ends!</p>
+						<div class="img-wrapper mt-4 mb-3">
+							<img src="assets/images/photo-1557684387-08927d28c72a.jpeg" data-slide-to="7" data-bs-slide-to="7" alt="">
+						</div>
+						<h5 class="card-title mbr-fonts-style display-7">
+							<strong>Ethan Brown</strong>
+						</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-                loader.style.display = "none";
+<section data-bs-version="5.1" class="list05 cid-vjIuJdT3IG" id="faq-3-vjIuJdT3IG">
+    
+    <div class="container">
+        <div class="col-12 mb-5 content-head">
+            <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+                <strong>Curious Minds</strong>
+            </h3>
+            
+        </div>
+        <div class="row justify-content-center ">
+            <div class="col-12 col-lg-8">
+                <div class="item features-without-image col-12 active">
+                    <div class="item-wrapper">
+                        <h5 class="mbr-card-title mbr-fonts-style mt-0 mb-3 display-5">
+                            <strong>What is the book of the month?</strong></h5>
+                        <p class="mbr-text mbr-fonts-style mt-0 mb-3 display-7">Our current read is 'The Night Circus' by Erin Morgenstern.</p>
+                    </div>
+                </div>
+                <div class="item features-without-image col-12">
+                    <div class="item-wrapper">
+                        <h5 class="mbr-card-title mbr-fonts-style mt-0 mb-3 display-5">
+                            <strong>How often do we meet?</strong></h5>
+                        <p class="mbr-text mbr-fonts-style mt-0 mb-3 display-7">We gather every third Wednesday at 7 PM.</p>
+                    </div>
+                </div>
+                <div class="item features-without-image col-12">
+                    <div class="item-wrapper">
+                        <h5 class="mbr-card-title mbr-fonts-style mt-0 mb-3 display-5">
+                            <strong>Can I join anytime?</strong></h5>
+                        <p class="mbr-text mbr-fonts-style mt-0 mb-3 display-7">Absolutely! New members are always welcome.</p>
+                    </div>
+                </div>
+                <div class="item features-without-image col-12">
+                  <div class="item-wrapper">
+                      <h5 class="mbr-card-title mbr-fonts-style mt-0 mb-3 display-5">
+                          <strong>What if I can't finish the book?</strong></h5>
+                      <p class="mbr-text mbr-fonts-style mt-0 mb-3 display-7">No worries! Join for the discussion anyway.</p>
+                  </div>
+              </div>
+              <div class="item features-without-image col-12">
+                <div class="item-wrapper">
+                    <h5 class="mbr-card-title mbr-fonts-style mt-0 mb-3 display-5">
+                        <strong>Are there any membership fees?</strong></h5>
+                    <p class="mbr-text mbr-fonts-style mt-0 mb-3 display-7">Membership is free and open to all.</p>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-                alert("حدث خطأ في الاتصال بالخادم. تأكد من الإنترنت.");
-            }
-        }
+<section data-bs-version="5.1" class="news08 cid-vjIuJdTgZ0" id="blog-5-vjIuJdTgZ0">
+  
+  
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-12 content-head">
+        <div class="mbr-section-head">
+          <h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+            <strong>Book Insights Corner</strong>
+          </h4>
+          
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="item features-image col-12 col-md-6 col-lg-6 active">
+        <div class="item-wrapper">
+          <div class="item-img mb-3">
+            <img src="assets/images/photo-1497633762265-9d179a990aa6.jpeg" alt="Mobirise Website Builder" title="" data-slide-to="0" data-bs-slide-to="0">
+          </div>
+          <div class="item-content align-left">
+            <h5 class="item-title mbr-fonts-style mt-0 mb-3 display-7">2026-05-01</h5>
+            <h6 class="item-subtitle mbr-fonts-style mb-3 display-5">
+              <strong>Magic in the Pages</strong>
+            </h6>
+            <p class="mbr-text mbr-fonts-style mb-3 display-7">Exploring motifs of illusion in this month’s choice.</p>
+            
+          </div>
+        </div>
+      </div><div class="item features-image col-12 col-md-6 col-lg-6">
+        <div class="item-wrapper">
+          <div class="item-img mb-3">
+            <img src="assets/images/photo-1550399105-c4db5fb85c18.jpeg" alt="Mobirise Website Builder" title="" data-slide-to="1" data-bs-slide-to="1">
+          </div>
+          <div class="item-content align-left">
+            <h5 class="item-title mbr-fonts-style mt-0 mb-3 display-7">2026-05-08</h5>
+            <h6 class="item-subtitle mbr-fonts-style mb-3 display-5">
+              <strong>Character Deep Dives</strong>
+            </h6>
+            <p class="mbr-text mbr-fonts-style mb-3 display-7">Let’s learn more about our favorite characters’ journeys!</p>
+            
+          </div>
+        </div>
+      </div><div class="item features-image col-12 col-md-6 col-lg-6">
+        <div class="item-wrapper">
+          <div class="item-img mb-3">
+            <img src="assets/images/photo-1491841573634-28140fc7ced7.jpeg" alt="Mobirise Website Builder" title="" data-slide-to="2" data-bs-slide-to="3">
+          </div>
+          <div class="item-content align-left">
+            <h5 class="item-title mbr-fonts-style mt-0 mb-3 display-7">2026-05-10</h5>
+            <h6 class="item-subtitle mbr-fonts-style mb-3 display-5">
+              <strong>Discussion Highlights</strong>
+            </h6>
+            <p class="mbr-text mbr-fonts-style mb-3 display-7">Recap of memorable moments from our last meeting.</p>
+            
+          </div>
+        </div>
+      </div><div class="item features-image col-12 col-md-6 col-lg-6">
+        <div class="item-wrapper">
+          <div class="item-img mb-3">
+            <img src="assets/images/photo-1610116306796-6fea9f4fae38.jpeg" alt="Mobirise Website Builder" title="" data-slide-to="3" data-bs-slide-to="4">
+          </div>
+          <div class="item-content align-left">
+            <h5 class="item-title mbr-fonts-style mt-0 mb-3 display-7">2026-05-12</h5>
+            <h6 class="item-subtitle mbr-fonts-style mb-3 display-5">
+              <strong>Your Thoughts Matter</strong>
+            </h6>
+            <p class="mbr-text mbr-fonts-style mb-3 display-7">Share your insights on this month’s themes!</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    </script>
+<section data-bs-version="5.1" class="gallery10 cid-vjIuJdTK2P" id="features-61-vjIuJdTK2P">
+  
 
+
+  <div class="container-fluid">
+
+      <div class="loop-container">
+        <div class="item display-1" data-linewords="Engaging Discussions * Book Recommendations * Community Events * Free Membership * Monthly Newsletters * Fun Gatherings *" data-direction="-1" data-speed="0.05">☁️ Best offers ☁️ Free delivery ☁️ Perfect design ☁️ Comfort ☁️ Support 24/7 ☁️ Vibes</div>
+
+        <div class="item display-1" data-linewords="Engaging Discussions * Book Recommendations * Community Events * Free Membership * Monthly Newsletters * Fun Gatherings *" data-direction="-1" data-speed="0.05">☁️ Best offers ☁️ Free delivery ☁️ Perfect design ☁️ Comfort ☁️ Support 24/7 ☁️ Vibes</div>
+      </div>
+    
+  </div>
+</section>
+
+<section data-bs-version="5.1" class="article12 cid-vjIuJdU6uH" id="about-us-12-vjIuJdU6uH">    
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 col-lg-10">
+                <h3 class="mbr-section-title mbr-fonts-style mb-4 mt-0 display-2">
+                <strong>Welcome to Book Haven</strong>
+                </h3>
+                
+                <p class="mbr-text mbr-fonts-style display-7">At Book Haven, we believe in the magic of stories and the power of shared insights. Join our vibrant community that celebrates the written word, one book at a time.</p>
+                <p class="mbr-text mbr-fonts-style display-7">Our club offers a cozy environment for readers of all kinds, where discussions flow as freely as the coffee. We provide a platform for members to connect, share thoughts, and ignite their passion for reading.</p>
+                <p class="mbr-text mbr-fonts-style display-7">With a diverse selection of books each month, engaging activities, and heartfelt chats, we invite you to be a part of an enriching literary experience.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="image02 cid-vjIuJdWAMt mbr-fullscreen mbr-parallax-background" id="image-13-vjIuJdWAMt">
+    
+    
+    <div class="container">
+        <div class="row"></div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="header18 cid-vjIuJdW5kE mbr-fullscreen" data-bg-video="https://www.youtube.com/embed/r3GqeNGipN4?autoplay=1&amp;loop=1&amp;playlist=r3GqeNGipN4&amp;t=20&amp;mute=1&amp;playsinline=1&amp;controls=0&amp;showinfo=0&amp;autohide=1&amp;allowfullscreen=true&amp;mode=transparent" id="video-5-vjIuJdW5kE">
+  
+
+  <div class="mbr-overlay" style="opacity: 0.3; background-color: rgb(0, 0, 0);"></div>
+  <div class="container-fluid">
+    <div class="row">
+    </div>
+  </div>
+</section>
+
+<section data-bs-version="5.1" class="features10 cid-vjIuJdX8WZ" id="metrics-2-vjIuJdX8WZ">
+  
+
+  
+  
+  <div class="container">
+    
+    <div class="row justify-content-center">
+      <div class="item features-without-image col-12 col-md-6 col-lg-4">
+        <div class="item-wrapper">
+          <div class="card-box align-left">
+            
+            <p class="card-title mbr-fonts-style mb-3 display-1">
+              <strong>150</strong>
+            </p>
+            <p class="card-text mbr-fonts-style mb-3 display-7">Happy Readers</p>
+            
+          </div>
+        </div>
+      </div>
+      <div class="item features-without-image col-12 col-md-6 col-lg-4">
+        <div class="item-wrapper">
+          <div class="card-box align-left">
+            
+            <p class="card-title mbr-fonts-style mb-3 display-1">
+              <strong>25</strong>
+            </p>
+            <p class="card-text mbr-fonts-style mb-3 display-7">Monthly Selections</p>
+            
+          </div>
+        </div>
+      </div>
+      <div class="item features-without-image col-12 col-md-6 col-lg-4">
+        <div class="item-wrapper">
+          <div class="card-box align-left">
+            
+            <p class="card-title mbr-fonts-style mb-3 display-1">
+              <strong>10</strong>
+            </p>
+            <p class="card-text mbr-fonts-style mb-3 display-7">Discussion Events</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-bs-version="5.1" class="social05 cid-vjIuJdXVgN" id="follow-us-2-vjIuJdXVgN">
+    
+
+    
+
+    <div class="container">
+        <div class="row">
+            <h3 class="mbr-section-title align-center mb-5 mbr-fonts-style display-2">
+                <strong>Join Our Book Adventure</strong>
+            </h3>
+            <div class="col-12">
+                <div class="social-row">
+                    <div class="soc-item">
+                        <a href="https://mobiri.se/" target="_blank">
+                            <span class="mbr-iconfont socicon socicon-facebook"></span>
+                        </a>
+                    </div>
+                    <div class="soc-item">
+                        <a href="https://mobiri.se/" target="_blank">
+                            <span class="mbr-iconfont socicon-twitter socicon"></span>
+                        </a>
+                    </div>
+                    <div class="soc-item">
+                        <a href="https://mobiri.se/" target="_blank">
+                            <span class="mbr-iconfont socicon-instagram socicon"></span>
+                        </a>
+                    </div>
+                    <div class="soc-item">
+                        <a href="https://mobiri.se/" target="_blank">
+                            <span class="mbr-iconfont socicon socicon-linkedin"></span>
+                        </a>
+                    </div>
+                    <div class="soc-item">
+                        <a href="https://mobiri.se/" target="_blank">
+                            <span class="mbr-iconfont socicon socicon-twitch"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="form5 cid-vjIuJdXqrs" id="contact-form-2-vjIuJdXqrs">
+    
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 content-head">
+                <div class="mbr-section-head mb-5">
+                    <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+                        <strong>Stay In Touch</strong>
+                    </h3>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
+                <form action="https://mobirise.eu/" method="POST" class="mbr-form form-with-styler" data-form-title="Form Name"><input type="hidden" name="email" data-form-email="true" value="3qBbslbph/OXfDdV1qupHH5ESGBRw2SqD5pnCA2MNN6qZC14thlf4U4Z0a9EWHu+0+YTCdsthgxhxImkVBhRqYMKuIkbsHreZelK+oJCWE24FVD9tyTRNUaSoLNncfDg">
+                    <div class="row">
+                        <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thanks for filling out the form!</div>
+                        <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
+                            Oops...! some problem!
+                        </div>
+                    </div>
+                    <div class="dragArea row">
+                        <div class="col-md col-sm-12 form-group mb-3" data-for="name">
+                            <input type="text" name="name" placeholder="Name" data-form-field="name" class="form-control" value="" id="name-contact-form-2-vjIuJdXqrs">
+                        </div>
+                        <div class="col-md col-sm-12 form-group mb-3" data-for="email">
+                            <input type="email" name="email" placeholder="Email" data-form-field="email" class="form-control" value="" id="email-contact-form-2-vjIuJdXqrs">
+                        </div>
+                        <div class="col-12 form-group mb-3" data-for="textarea">
+                            <textarea name="textarea" placeholder="Message" data-form-field="textarea" class="form-control" id="textarea-contact-form-2-vjIuJdXqrs"></textarea>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 align-center mbr-section-btn">
+                            <button type="submit" class="btn btn-primary display-7">Join Us Now!</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="contacts01 cid-vjIuJdY3q2" id="contacts-1-vjIuJdY3q2">
+    
+
+    
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 content-head">
+                <div class="mbr-section-head mb-5">
+                    <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+                        <strong>Contact Us</strong>
+                    </h3>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="item features-without-image col-12 col-md-6 active">
+                <div class="item-wrapper">
+                    <div class="text-wrapper">
+                        <h6 class="card-title mbr-fonts-style mb-3 display-5">
+                            <strong>Phone</strong>
+                        </h6>
+                        <p class="mbr-text mbr-fonts-style display-7">
+                            <a href="tel:(555) 472-3250" class="text-black">(555) 472-3250</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="item features-without-image col-12 col-md-6">
+                <div class="item-wrapper">
+                    <div class="text-wrapper">
+                        <h6 class="card-title mbr-fonts-style mb-3 display-5">
+                            <strong>Email</strong>
+                        </h6>
+                        <p class="mbr-text mbr-fonts-style display-7">
+                            <a href="mailto:info@bookclubhub.com" class="text-black">info@bookclubhub.com</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="item features-without-image col-12 col-md-6">
+                <div class="item-wrapper">
+                    <div class="text-wrapper">
+                        <h6 class="card-title mbr-fonts-style mb-3 display-5">
+                            <strong>Address</strong>
+                        </h6>
+                        <p class="mbr-text mbr-fonts-style display-7">123 Literature Lane, Novel City, NY 10001</p>
+                    </div>
+                </div>
+            </div>
+            <div class="item features-without-image col-12 col-md-6">
+                <div class="item-wrapper">
+                    <div class="text-wrapper">
+                        <h6 class="card-title mbr-fonts-style mb-3 display-5">
+                            <strong>Open Hours</strong>
+                        </h6>
+                        <p class="mbr-text mbr-fonts-style display-7">Mon - Fri: 10 AM - 6 PM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section data-bs-version="5.1" class="footer4 cid-vjIuJdZUn2" once="footers" id="footer-4-vjIuJdZUn2">
+
+    
+
+    
+
+    <div class="container">
+        <div class="media-container-row align-center mbr-white">
+            <div class="col-12">
+                <p class="mbr-text mb-0 mbr-fonts-style display-7">© 2026 Book Club Hub. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</section><section class="display-7" style="padding: 0;align-items: center;justify-content: center;flex-wrap: wrap;    align-content: center;display: flex;position: relative;height: 4rem;"><a href="https://mobiri.se/" style="flex: 1 1;height: 4rem;position: absolute;width: 100%;z-index: 1;"><img alt="" style="height: 4rem;" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="></a><p style="margin: 0;text-align: center;" class="display-7">&#8204;</p><a style="z-index:1" href="https://mobirise.com/builder/no-code-website-builder.html">No Code Website Builder</a></section><script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>  <script src="assets/parallax/jarallax.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/ytplayer/index.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/scrollgallery/scroll-gallery.js"></script>  <script src="assets/vimeoplayer/player.js"></script>  <script src="assets/theme/js/script.js"></script>  <script src="assets/formoid/formoid.min.js"></script>  
+  
+  
 </body>
 </html>
